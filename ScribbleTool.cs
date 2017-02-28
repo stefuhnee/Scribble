@@ -35,9 +35,7 @@ namespace Scribble
 
         private void makePen()
         {
-            pen = new Pen(brush, size);
-            if (shape == Shape.cursive)
-                pen.SetLineCap(LineCap.Round, LineCap.Round, DashCap.Round);
+            pen = new Pen(brush);
         }
 
         private void makeBrush()
