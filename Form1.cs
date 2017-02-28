@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Scribble
 {
-    public partial class Form1 : Form
+    public partial class Scribble : Form
     {
         Stroke current;
         List<Stroke> strokes = new List<Stroke>();
@@ -19,7 +19,7 @@ namespace Scribble
         public Pen pen;
         public int size = 10;
 
-        public Form1()
+        public Scribble()
         {
             InitializeComponent();
         }
@@ -100,6 +100,11 @@ namespace Scribble
         }
 
         private void SizeSelect_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void square_CheckedChanged(object sender, EventArgs e)
         {
 
         }
