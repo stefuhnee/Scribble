@@ -8,26 +8,38 @@ using System.Drawing.Drawing2D;
 
 namespace Scribble
 {
-    class ScribbleTool
+    public class ScribbleTool
     {
-        public int size;
-        public Color color;
-        public Shape shape;
-        public bool isFilled;
-        public bool isPen;
-        public bool isBrush;
+        public int size = 10;
+        public Color color = Color.Black;
+        public Shape shape = Shape.cursive;
+        public bool isPen = true;
+        public Pen pen;
+        public Brush brush;
 
-        public Pen makePen()
+        public ScribbleTool(bool isFilled)
         {
-            Pen myPen = new Pen(color, size);
-            myPen.SetLineCap(LineCap.Round, LineCap.Round, DashCap.Round);
-            return myPen;
+            if (isFilled)
+            {
+                this.isPen = false;
+                makeBrush();
+            }
+            else
+            {
+                this.isPen = true;
+                makePen();
+            }
         }
 
-        public Brush makeBrush()
+        private void makePen()
         {
-            var myBrush = SystemBrushes.FromSystemColor(color);
-            return myBrush;
+            pen = new Pen(color, size);
+            pen.SetLineCap(LineCap.Round, LineCap.Round, DashCap.Round);
+        }
+
+        private void makeBrush()
+        {
+            Brush brush = SystemBrushes.FromSystemColor(color);
         }
     }
 

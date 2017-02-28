@@ -33,9 +33,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Circle = new System.Windows.Forms.RadioButton();
             this.square = new System.Windows.Forms.RadioButton();
-            this.isFilled = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Tools = new System.Windows.Forms.Panel();
+            this.FillCheck = new System.Windows.Forms.CheckBox();
+            this.cursive = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.SizeSelect)).BeginInit();
             this.Tools.SuspendLayout();
             this.SuspendLayout();
@@ -46,6 +47,11 @@
             this.SizeSelect.Name = "SizeSelect";
             this.SizeSelect.Size = new System.Drawing.Size(120, 31);
             this.SizeSelect.TabIndex = 1;
+            this.SizeSelect.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.SizeSelect.ValueChanged += new System.EventHandler(this.SizeSelect_ValueChanged);
             // 
             // colorButton
@@ -76,9 +82,9 @@
             this.Circle.Name = "Circle";
             this.Circle.Size = new System.Drawing.Size(98, 29);
             this.Circle.TabIndex = 3;
-            this.Circle.TabStop = true;
             this.Circle.Text = "Circle";
             this.Circle.UseVisualStyleBackColor = true;
+            this.Circle.CheckedChanged += new System.EventHandler(this.Circle_CheckedChanged);
             // 
             // square
             // 
@@ -87,26 +93,14 @@
             this.square.Name = "square";
             this.square.Size = new System.Drawing.Size(112, 29);
             this.square.TabIndex = 4;
-            this.square.TabStop = true;
             this.square.Text = "Square";
             this.square.UseVisualStyleBackColor = true;
-            this.square.CheckedChanged += new System.EventHandler(this.square_CheckedChanged);
-            // 
-            // isFilled
-            // 
-            this.isFilled.AutoSize = true;
-            this.isFilled.Location = new System.Drawing.Point(820, 61);
-            this.isFilled.Name = "isFilled";
-            this.isFilled.Size = new System.Drawing.Size(72, 29);
-            this.isFilled.TabIndex = 5;
-            this.isFilled.Text = "Fill";
-            this.isFilled.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(628, 18);
+            this.label2.Location = new System.Drawing.Point(636, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(202, 37);
             this.label2.TabIndex = 6;
@@ -114,8 +108,9 @@
             // 
             // Tools
             // 
+            this.Tools.Controls.Add(this.FillCheck);
+            this.Tools.Controls.Add(this.cursive);
             this.Tools.Controls.Add(this.label2);
-            this.Tools.Controls.Add(this.isFilled);
             this.Tools.Controls.Add(this.square);
             this.Tools.Controls.Add(this.Circle);
             this.Tools.Controls.Add(this.label1);
@@ -125,6 +120,30 @@
             this.Tools.Name = "Tools";
             this.Tools.Size = new System.Drawing.Size(1568, 118);
             this.Tools.TabIndex = 3;
+            // 
+            // FillCheck
+            // 
+            this.FillCheck.AutoSize = true;
+            this.FillCheck.Location = new System.Drawing.Point(1039, 60);
+            this.FillCheck.Name = "FillCheck";
+            this.FillCheck.Size = new System.Drawing.Size(133, 29);
+            this.FillCheck.TabIndex = 8;
+            this.FillCheck.Text = "FillCheck";
+            this.FillCheck.UseVisualStyleBackColor = true;
+            this.FillCheck.CheckedChanged += new System.EventHandler(this.FillCheck_CheckedChanged);
+            // 
+            // cursive
+            // 
+            this.cursive.AutoSize = true;
+            this.cursive.Checked = true;
+            this.cursive.Location = new System.Drawing.Point(813, 61);
+            this.cursive.Name = "cursive";
+            this.cursive.Size = new System.Drawing.Size(116, 29);
+            this.cursive.TabIndex = 7;
+            this.cursive.TabStop = true;
+            this.cursive.Text = "Cursive";
+            this.cursive.UseVisualStyleBackColor = true;
+            this.cursive.CheckedChanged += new System.EventHandler(this.cursive_CheckedChanged);
             // 
             // Scribble
             // 
@@ -158,6 +177,8 @@
         private System.Windows.Forms.CheckBox isFilled;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel Tools;
+        private System.Windows.Forms.CheckBox FillCheck;
+        private System.Windows.Forms.RadioButton cursive;
     }
 }
 
