@@ -16,8 +16,8 @@ namespace Scribble
         Stroke current;
         List<Stroke> strokes = new List<Stroke>();
         List<Stroke> undo = new List<Stroke>();
-        Pen pen;
-        int size;
+        public Pen pen;
+        public int size = 10;
 
         public Form1()
         {
@@ -45,9 +45,9 @@ namespace Scribble
         {
             current = new Stroke();
             if (e.Button == MouseButtons.Left)
-                current.pen = new Pen(Color.Blue, 10);
-            else
-                current.pen = Pens.Red;
+                if (pen != null)
+                    current.pen = pen;
+                else current.pen = new Pen(Color.Black, 10);
             current.pen.SetLineCap(LineCap.Round, LineCap.Round, DashCap.Round);
             current.shape = Shape.cursive;
             strokes.Add(current);
@@ -89,6 +89,19 @@ namespace Scribble
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
             current = null;
+        }
+
+        private void colorButton_Click(object sender, EventArgs e)
+        {
+            var colorPicker = new ColorDialog();
+            colorPicker.AllowFullOpen = false;
+            if (colorPicker.ShowDialog() == DialogResult.OK)
+                pen = new Pen(colorPicker.Color, size);
+        }
+
+        private void SizeSelect_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
