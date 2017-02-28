@@ -17,8 +17,12 @@ namespace Scribble
         public Pen pen;
         public Brush brush;
 
-        public ScribbleTool(bool isFilled)
+        public ScribbleTool(bool isFilled, int size, Color color, Shape shape)
         {
+            this.size = size;
+            this.color = color;
+            this.shape = shape;
+
             if (isFilled)
             {
                 this.isPen = false;

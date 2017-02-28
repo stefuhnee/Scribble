@@ -18,8 +18,8 @@ namespace Scribble
         List<Stroke> undo = new List<Stroke>();
         Color currentColor = Color.Black;
         int currentSize = 10;
-        bool isFilledChecked;
-        ScribbleTool currentTool = new ScribbleTool(false);
+        Shape currentShape = Shape.cursive;
+        bool isFilledChecked = false;
 
         public Scribble()
         {
@@ -47,7 +47,7 @@ namespace Scribble
         {
             current = new Stroke();
             if (e.Button == MouseButtons.Left || e.Button == MouseButtons.Right)
-                current.tool = currentTool;
+                current.tool = new ScribbleTool(isFilledChecked, currentSize, currentColor, currentShape);
             strokes.Add(current);
             Form1_MouseMove(sender, e);
         }
@@ -94,12 +94,13 @@ namespace Scribble
             var colorPicker = new ColorDialog();
             colorPicker.AllowFullOpen = false;
             if (colorPicker.ShowDialog() == DialogResult.OK)
-                currentTool.color = colorPicker.Color;
+                currentColor = colorPicker.Color;
         }
 
         private void SizeSelect_ValueChanged(object sender, EventArgs e)
         {
-            currentTool.size = (int)SizeSelect.Value;
+            currentSize = (int)SizeSelect.Value;
+            Console.WriteLine(currentSize);
         }
 
         private void FillCheck_CheckedChanged(object sender, EventArgs e)
