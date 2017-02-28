@@ -127,9 +127,9 @@
             this.FillCheck.AutoSize = true;
             this.FillCheck.Location = new System.Drawing.Point(1039, 60);
             this.FillCheck.Name = "FillCheck";
-            this.FillCheck.Size = new System.Drawing.Size(133, 29);
+            this.FillCheck.Size = new System.Drawing.Size(72, 29);
             this.FillCheck.TabIndex = 8;
-            this.FillCheck.Text = "FillCheck";
+            this.FillCheck.Text = "Fill";
             this.FillCheck.UseVisualStyleBackColor = true;
             this.FillCheck.CheckedChanged += new System.EventHandler(this.FillCheck_CheckedChanged);
             // 

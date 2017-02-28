@@ -34,6 +34,7 @@ namespace Scribble
                         tool.pen.SetLineCap(LineCap.Round, LineCap.Round, DashCap.Round);
                         // TODO: turn on rounded endcaps
                         var cursivePen = new Pen(tool.pen.Color, tool.size);
+                        e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                         e.Graphics.DrawEllipse(cursivePen, pt.X - tool.size, pt.Y - tool.size, tool.size, tool.size);
                         if (ptPrev != null)
                             e.Graphics.DrawLine(tool.pen, pt, ptPrev.Value);
