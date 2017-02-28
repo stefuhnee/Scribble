@@ -95,6 +95,7 @@
             this.square.TabIndex = 4;
             this.square.Text = "Square";
             this.square.UseVisualStyleBackColor = true;
+            this.square.CheckedChanged += new System.EventHandler(this.square_CheckedChanged);
             // 
             // label2
             // 

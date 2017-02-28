@@ -110,12 +110,26 @@ namespace Scribble
 
         private void cursive_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (cursive.Checked)
+            {
+                this.currentShape = Shape.cursive;
+            }
         }
 
         private void Circle_CheckedChanged(object sender, EventArgs e)
         {
+            if (Circle.Checked)
+            {
+                this.currentShape = Shape.circle;
+            }
+        }
 
+        private void square_CheckedChanged(object sender, EventArgs e)
+        {
+            if (square.Checked)
+            {
+                this.currentShape = Shape.square;
+            }
         }
     }
 }

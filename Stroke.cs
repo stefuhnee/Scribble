@@ -22,9 +22,9 @@ namespace Scribble
                 if (tool.isPen)
                 {
                     if (tool.shape == Shape.circle)
-                        e.Graphics.DrawEllipse(tool.pen, pt.X - 10, pt.Y - 10, (float)tool.size, (float)tool.size);
+                        e.Graphics.DrawEllipse(tool.pen, pt.X - tool.size, pt.Y - tool.size, tool.size, tool.size);
                     else if (tool.shape == Shape.square)
-                        e.Graphics.DrawRectangle(tool.pen, pt.X - 10, pt.Y - 10, (float)tool.size, (float)tool.size);
+                        e.Graphics.DrawRectangle(tool.pen, pt.X - tool.size, pt.Y - tool.size, tool.size, tool.size);
                     else if (tool.shape == Shape.msft)
                         e.Graphics.DrawImage(Resources.msft, pt);
                     else if (tool.shape == Shape.cursive)

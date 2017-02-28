@@ -22,12 +22,10 @@ namespace Scribble
             this.size = size;
             this.color = color;
             this.shape = shape;
+            makeBrush();
 
             if (isFilled)
-            {
                 this.isPen = false;
-                makeBrush();
-            }
             else
             {
                 this.isPen = true;
@@ -37,13 +35,14 @@ namespace Scribble
 
         private void makePen()
         {
-            pen = new Pen(color, size);
-            pen.SetLineCap(LineCap.Round, LineCap.Round, DashCap.Round);
+            pen = new Pen(brush, size);
+            if (shape == Shape.cursive)
+                pen.SetLineCap(LineCap.Round, LineCap.Round, DashCap.Round);
         }
 
         private void makeBrush()
         {
-            Brush brush = SystemBrushes.FromSystemColor(color);
+           brush = new SolidBrush(color);
         }
     }
 
