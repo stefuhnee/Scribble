@@ -16,8 +16,9 @@ namespace Scribble
         Stroke current;
         List<Stroke> strokes = new List<Stroke>();
         List<Stroke> undo = new List<Stroke>();
-        public Pen pen;
-        public int size = 10;
+        Color currentColor = Color.Black;
+        int currentSize = 10;
+        bool isFilled = true;
 
         public Scribble()
         {
@@ -45,10 +46,7 @@ namespace Scribble
         {
             current = new Stroke();
             if (e.Button == MouseButtons.Left)
-                if (pen != null)
-                    current.pen = pen;
-                else current.pen = new Pen(Color.Black, 10);
-            current.pen.SetLineCap(LineCap.Round, LineCap.Round, DashCap.Round);
+                current.pen = new Pen(currentColor, currentSize);
             current.shape = Shape.cursive;
             strokes.Add(current);
             Form1_MouseMove(sender, e);
@@ -101,7 +99,7 @@ namespace Scribble
 
         private void SizeSelect_ValueChanged(object sender, EventArgs e)
         {
-
+            size = (int)SizeSelect.Value;
         }
 
         private void square_CheckedChanged(object sender, EventArgs e)
